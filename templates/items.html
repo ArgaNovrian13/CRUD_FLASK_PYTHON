@@ -1,0 +1,17 @@
+<ul class="list-group border border-dark">
+  {% if items %} {% for item in items %}
+  <li class="list-group-item">
+    {{ loop.index }}. {{ item[1] }} - ${{ item[2] }}
+    <a href="/detail/{{ item[0] }}" class="btn btn-info">Detail</a>
+    <a href="/edit/{{ item[0] }}" class="btn btn-success">Edit</a>
+    <a
+      href="/delete/{{ item[0] }}"
+      class="btn btn-danger"
+      onclick="return confirm('Apakah Anda Yakin Ingin Hapus Data Ini')"
+      >Hapus</a
+    >
+  </li>
+  {% endfor %} {% else %}
+  <li class="list-group-item text-center">Data tidak ditemukan</li>
+  {% endif %}
+</ul>
